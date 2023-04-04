@@ -15,14 +15,13 @@ searchField.addEventListener(
 );
 
 function onSearchCountries(evt) {
-  if (evt.target.value.trim() === '') {
+  const countryName = evt.target.value.trim();
+  if (countryName === '') {
     countryInfo.innerHTML = '';
     countryList.innerHTML = '';
     return;
   }
-  fetchCountries(evt.target.value.trim())
-    .then(renderCountryMarkup)
-    .catch(showError);
+  fetchCountries(countryName).then(renderCountryMarkup).catch(showError);
 }
 
 function renderCountryMarkup(countries) {
